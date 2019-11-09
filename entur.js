@@ -13,6 +13,22 @@
         $scope.directionTwo = OHService.getItem('Direction02_FrontDisplay').state
         $scope.directionOneDepartures = getDirectionOneDepartures($scope, OHService);
         $scope.directionTwoDepartures = getDirectionTwoDepartures($scope, OHService);
+
+        var keys = Object.keys($scope);
+
+        if (!keys) {
+            $scope.maxDepartures = 5;
+        } else {
+            $scope.maxDepartures = $scope.config.displayed_departures;
+        }
+
+        var total = parseInt($scope.maxDepartures);
+        $scope.tot = keys;
+        var range = [];
+        for(var i=0;i<total;i++) {
+          range.push(i);
+        }
+        $scope.range = range;
     }
 
     OHService.onUpdate($scope, 'RealTime_Departure01_Time1', function () {
