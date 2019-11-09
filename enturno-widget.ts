@@ -32,5 +32,23 @@
       	</div>
       </div>
 		</div>
+
+   <div id="direction02" class="entur-top-padding" ng-show="config.both_directions">
+			<div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-11">
+          <h2 class="text-left">{{stopPlaceName}}</h2>
+          <h3 class="text-left">{{lineCode}} - {{directionTwo}}</h3>
+        </div>
+      </div>
+			<div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-2" data-ng-repeat="i in range">
+  				<h3 ng-style="{{directionTwoDepartures[i].isLive}} ? {'color': config.realtime_color} : {'color': ''}">{{directionTwoDepartures[i].time | date:'HH:mm:ss'}}</h3>
+      	</div>
+      </div>
+		</div>
 	</div>
 </div>

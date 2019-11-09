@@ -1,5 +1,5 @@
 {
-    "template": "<!-- For more information goto: https://github.com/klocsson/enturno-widget -->\n\n<style>\n@media (min-width: 300px) {\n    .vertical-top {\n      margin: 0;\n      position: absolute;\n      top: 5%;\n    }\n  \t.entur-top-padding {\n  \t\tpadding-top: 5%;\n  \t}\n}\n</style>\n\n<div id=\"container\" oc-lazy-load=\"['/static/enturno-widget/enturno.js']\">\n  <div class=\"vertical-top\" ng-controller=\"enturCtrl\">\n    <div id=\"direction01\" class=\"entur-top-padding\">\n\t\t\t<div class=\"row\"> \n        <div class=\"col-md-1\">\n        </div>\n        <div class=\"col-md-11\">\n          <h2 class=\"text-left\">{{stopPlaceName}}</h2>\n          <h3 class=\"text-left\">{{lineCode}} - {{directionOne}}</h3>\n        </div>\n      </div>\n\t\t\t<div class=\"row\">\n        <div class=\"col-md-1\">\n        </div>\n        <div class=\"col-md-2\" data-ng-repeat=\"i in range\">\n  \t\t\t\t<h3 ng-style=\"{{directionOneDepartures[i].isLive}} ? {'color': config.realtime_color} : {'color': ''}\">{{directionOneDepartures[i].time | date:'HH:mm:ss'}}</h3>\n      \t</div>\n      </div>\n\t\t</div>\n\t</div>\n</div>",
+    "template": "<!-- For more information goto: https://github.com/klocsson/enturno-widget -->\n\n<style>\n@media (min-width: 300px) {\n    .vertical-top {\n      margin: 0;\n      position: absolute;\n      top: 5%;\n    }\n  \t.entur-top-padding {\n  \t\tpadding-top: 5%;\n  \t}\n}\n</style>\n\n<div id=\"container\" oc-lazy-load=\"['/static/enturno-widget/enturno.js']\">\n  <div class=\"vertical-top\" ng-controller=\"enturCtrl\">\n    <div id=\"direction01\" class=\"entur-top-padding\">\n\t\t\t<div class=\"row\"> \n        <div class=\"col-md-1\">\n        </div>\n        <div class=\"col-md-11\">\n          <h2 class=\"text-left\">{{stopPlaceName}}</h2>\n          <h3 class=\"text-left\">{{lineCode}} - {{directionOne}}</h3>\n        </div>\n      </div>\n\t\t\t<div class=\"row\">\n        <div class=\"col-md-1\">\n        </div>\n        <div class=\"col-md-2\" data-ng-repeat=\"i in range\">\n  \t\t\t\t<h3 ng-style=\"{{directionOneDepartures[i].isLive}} ? {'color': config.realtime_color} : {'color': ''}\">{{directionOneDepartures[i].time | date:'HH:mm:ss'}}</h3>\n      \t</div>\n      </div>\n\t\t</div>\n    \n   <div id=\"direction02\" class=\"entur-top-padding\" ng-show=\"config.both_directions\">\n\t\t\t<div class=\"row\"> \n        <div class=\"col-md-1\">\n        </div>\n        <div class=\"col-md-11\">\n          <h2 class=\"text-left\">{{stopPlaceName}}</h2>\n          <h3 class=\"text-left\">{{lineCode}} - {{directionTwo}}</h3>\n        </div>\n      </div>\n\t\t\t<div class=\"row\">\n        <div class=\"col-md-1\">\n        </div>\n        <div class=\"col-md-2\" data-ng-repeat=\"i in range\">\n  \t\t\t\t<h3 ng-style=\"{{directionTwoDepartures[i].isLive}} ? {'color': config.realtime_color} : {'color': ''}\">{{directionTwoDepartures[i].time | date:'HH:mm:ss'}}</h3>\n      \t</div>\n      </div>\n\t\t</div>\n\t</div>\n</div>",
     "name": "Entur timetable",
     "author": "Michal Kloc",
     "description": "Widget to display departures of public transport in Norway",
@@ -17,6 +17,13 @@
             "label": "Real-time color",
             "default": "#1c5dc7",
             "description": "Font color for real-time departures"
+        },
+        {
+            "type": "checkbox",
+            "id": "both_directions",
+            "label": "Both directions",
+            "default": true,
+            "description": "Show both directions"
         }
     ]
 }
