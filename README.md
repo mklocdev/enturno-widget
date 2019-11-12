@@ -1,1 +1,2 @@
-# entur-widget
+# enturno-widget
+Enturno widget for openHAB
