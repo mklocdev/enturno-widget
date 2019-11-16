@@ -14,7 +14,7 @@
         $scope.directionOneDepartures = getDirectionOneDepartures($scope, OHService);
         $scope.directionTwoDepartures = getDirectionTwoDepartures($scope, OHService);
 
-        $scope.maxDepartures = $scope.config.displayed_departures;
+        $scope.maxDepartures = 5;
 
         var total = parseInt($scope.maxDepartures);
         var range = [];
